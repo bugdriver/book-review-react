@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import NavBar from './components/navbar';
+import requestAPI from './api/requestAPI';
+import './components/style.css';
+import Books from './components/Books';
 
 function App() {
+  const [loginDetails, setLoginDetails] = useState({
+    isLogin: false,
+    user: null
+  });
+
+  useEffect(() => {
+    requestAPI.getUser().then((userDetails) => {
+      if (userDetails) {
+        setLoginDetails({ isLogin: true, user: userDetails });
+      }
+    });
+  }, [loginDetails.isLogin]);
+
+  const handleLogout = function() {
+    requestAPI.logout().then(() => {
+      setLoginDetails({ isLogin: false, user: null });
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar loginDetails={loginDetails} handleLogout={handleLogout} />
+      <Books />
     </div>
   );
 }
