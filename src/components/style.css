@@ -4,7 +4,7 @@ body {
 
 .navbar {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: space-between;
   height: 4em;
   align-items: center;
   font-size: 1.3em;
@@ -29,7 +29,6 @@ a {
   transition: 0.3s;
   width: 15%;
   margin: 4px;
-  cursor: pointer;
 }
 
 .book-card:hover {
@@ -48,4 +47,149 @@ a {
 .book-card-img {
   width: 100%;
   height: 70%;
+  cursor: pointer;
+}
+
+.book-container {
+  display: flex;
+  margin: 2em 10em;
+  width: 70%;
+}
+
+.book-container .detail {
+  margin: 0 3em;
+}
+
+.review-container,
+.post-review-container {
+  display: flex;
+  align-content: space-between;
+  flex-wrap: wrap;
+  margin: 5em 10em;
+  width: 70%;
+}
+
+.update-review-container {
+  display: flex;
+  align-content: space-between;
+  flex-wrap: wrap;
+}
+.review-box {
+  border: 1px solid;
+  width: 100%;
+  border-radius: 12px;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.review-text {
+  line-height: 1.7em;
+  font-size: 1.1em;
+  padding: 0.7em 0;
+}
+
+.review-time {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.post-review-textArea {
+  font-family: sans-serif;
+  line-height: 1.7em;
+  font-size: 1.1em;
+  padding: 0.4em;
+  width: 100%;
+  height: 10em;
+}
+
+.post-review-btn,
+.update-review-btn,
+.cancel-review-btn {
+  background-color: #f9f9fa;
+  border: 1px solid #0769c5;
+  color: rgb(7, 6, 6);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.post-review-btn,
+.update-review-btn:hover {
+  background-color: #0769c5;
+  color: white;
+}
+
+.review-delete-btn {
+  height: 1.5em;
+  cursor: pointer;
+}
+.review-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal {
+  top: 33%;
+  left: 33%;
+  z-index: 99;
+  position: fixed;
+  align-items: center;
+  background: #21212185;
+}
+
+.popup-heading {
+  font-size: 1.2rem;
+  margin: 0 auto;
+}
+
+.popup-box {
+  margin: 0 auto;
+  align-items: center;
+  background: white;
+  z-index: 100;
+  padding: 3em;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  min-height: 13rem;
+  min-width: 30rem;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16),
+    0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgb(0 0 0 / 45%);
+}
+
+.popup-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3em;
+}
+.review-action-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 4em;
+}
+
+.danger-btn {
+  background-color: #f04b4c;
+  color: white;
+  border: 1px solid #f04b4c;
+  height: 3rem;
+  width: 8rem;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.cancel-btn {
+  background-color: white;
+  color: #f04b4c;
+  border: 1px solid #f04b4c;
+  height: 3rem;
+  width: 8rem;
+  cursor: pointer;
+  font-weight: 900;
 }

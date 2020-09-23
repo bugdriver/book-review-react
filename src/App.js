@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import NavBar from './components/navbar';
 import requestAPI from './api/requestAPI';
 import './components/style.css';
 import Books from './components/Books';
+import BookDetail from './components/bookDetail';
 
 function App() {
   const [loginDetails, setLoginDetails] = useState({
@@ -25,10 +27,19 @@ function App() {
   };
 
   return (
-    <div>
+    <BrowserRouter>
       <NavBar loginDetails={loginDetails} handleLogout={handleLogout} />
-      <Books />
-    </div>
+      <Switch>
+        <Route exact path="/">
+          <div>
+            <Books />
+          </div>
+        </Route>
+        <Route path="/book/:bookId">
+          <BookDetail />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

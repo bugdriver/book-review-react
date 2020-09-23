@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import requestAPI from '../api/requestAPI';
 
 const Book = (props) => {
-  const { frontimage, title } = props;
-  const serverHost = process.env.REACT_APP_SERVER_HOST || '';
+  const { id, frontimage, title } = props;
+  const [image, setImage] = useState('');
+
+  useEffect(() => {
+    requestAPI.fetchImage(frontimage).then(setImage);
+  }, [frontimage]);
+
   return (
     <div className="book-card">
-      <img
-        src={`${serverHost}${frontimage}`}
-        alt="Avatar"
-        className="book-card-img"
-      />
+      <Link to={`/book/${id}`}>
+        <img src={image} alt="Avatar" className="book-card-img" />
+      </Link>
       <div className="book-detail">
         <h4>
           <b>{title}</b>

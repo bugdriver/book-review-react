@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LoginWithGithub from './login';
 
 const NavBar = (props) => {
@@ -8,16 +9,30 @@ const NavBar = (props) => {
     const { user } = loginDetails;
     return (
       <div className="navbar">
-        <button className="btnlink" onClick={props.handleLogout}>
-          Logout
-        </button>
-        <span>{user.login}</span>
+        <div>
+          <Link to="/">
+            <h3>Reader's Junction</h3>
+          </Link>
+        </div>
+        <div>
+          <button className="btnlink" onClick={props.handleLogout}>
+            Logout
+          </button>
+          <span>{user.login}</span>
+        </div>
       </div>
     );
   }
   return (
     <div className="navbar">
-      <LoginWithGithub />
+      <div>
+        <Link to="/">
+          <h3>Reader's Junction</h3>
+        </Link>
+      </div>
+      <div>
+        <LoginWithGithub />
+      </div>
     </div>
   );
 };
