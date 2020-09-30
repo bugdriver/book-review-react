@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import requestAPI from '../api/requestAPI';
 import Review from './review';
 import PostReview from './postReview';
+import UserContext from '../context/userContext';
 
 const BookDetail = (props) => {
+  const [loginDetails] = useContext(UserContext);
   const { bookId } = useParams();
   const [bookDetail, setBookDetail] = useState({});
   const [reviews, setReviews] = useState([]);
@@ -48,7 +50,9 @@ const BookDetail = (props) => {
         })}
       </div>
       <div>
-        <PostReview bookId={bookId} updateReview={updateReview} />
+        {loginDetails.isLogin && (
+          <PostReview bookId={bookId} updateReview={updateReview} />
+        )}
       </div>
     </div>
   );

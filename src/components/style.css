@@ -11,6 +11,17 @@ body {
   padding: 0 2em;
 }
 
+.selectedLink {
+  text-decoration: underline;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 17em;
+}
+
 a {
   text-decoration: none;
 }
@@ -42,6 +53,7 @@ a {
 .book-list-container {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 5em;
 }
 
 .book-card-img {
@@ -124,7 +136,8 @@ a {
   color: white;
 }
 
-.review-delete-btn {
+.review-delete-btn,
+.review-edit-btn {
   height: 1.5em;
   cursor: pointer;
 }
@@ -192,4 +205,96 @@ a {
   width: 8rem;
   cursor: pointer;
   font-weight: 900;
+}
+
+.book-search-bar {
+  width: 50%;
+  margin: 2em auto;
+}
+.book-search-bar input {
+  width: 100%;
+  font-size: 1.3em;
+  padding: 0.3em;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.add-book-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#contact input[type='text'],
+#contact textarea,
+#contact button[type='button'] {
+  font: 400 16px/16px 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+#contact {
+  background: #f9f9f9;
+  padding: 25px;
+  margin: 90px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#contact input[type='text'],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#contact button[type='button'] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #0967c0;
+  color: #fff;
+  margin: 3px 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#contact button[type='button']:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
 }
